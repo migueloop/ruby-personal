@@ -1,0 +1,24 @@
+<%= render 'layouts/shim' %>
+
+
+
+<header class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="navbar-inner" id="barra-nav">
+        <div class="container">
+         
+          <nav>
+             <%= image_tag("mruiz_logo.png", width: "67", :alt => "logo" ) %>
+            <ul class="nav navbar-nav pull-right">
+              <li><%= link_to "Home",home_path %></li>
+              <li><%= link_to "Projects",projects_path %></li>
+              <li><%= link_to "Help",help_path %></li>
+              <li><%= link_to "Contact",contact_path %></li>
+              <li><%= link_to "Sign up",signup_path %></li>
+
+            <li><%= link_to "Sign in", signin_path %></li>
+       
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header> 

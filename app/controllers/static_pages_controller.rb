@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
   def projects
   end
 
-  def help
+  def snippets
   end
 
   def contact

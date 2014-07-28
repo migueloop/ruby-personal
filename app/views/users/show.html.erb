@@ -1,3 +1,31 @@
 <%= provide(:title, @user.name)%>
 
-<%= @user.name %> , <%= @user.email %>
+
+
+<div class="container"><div id="space"></div>
+	<h1> <%= @user.name%>'s profile </h1>
+	<div id="space"></div>
+
+	<section class="row">
+				<article class="col-sm-3 col-md-3 col-lg-3">
+			<div class="profile">
+				<%= 
+				image_tag("default-profile-pic.png", size: "150", class: "img-circle" , :alt => "Profile picture" ) %>
+				<p><%= @user.name %> </p>
+				<p><%= @user.email %></p>
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item active">Resume</li>
+			</ul>
+		</article>
+
+		<article class="profile-info">
+			<strong> No information available yet </strong>
+		</article>
+
+	</section>
+
+
+				
+</div>
+

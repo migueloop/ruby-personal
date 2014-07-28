@@ -1,8 +1,13 @@
 <% provide(:title, 'Projects') %>
 
-
+<div class="container">
     <div class="section_title">
     <h1>Projects</h1>
+    <% if is_admin? %>
+      <%= link_to  new_project_path  do %>
+          <span id="add_project" class="btn btn-default">  Add project </span>
+      <%end  %>
+     <%end%>
     </div>
     <section id="projects" class="section">
 
@@ -10,12 +15,18 @@
         %> 
 
        <div class="span3 features project_container">
-          <div class="half_top">  <div class="module_image_wrap "> <%= image_tag("projects/"+p.imgName, size: "100", :alt => "logo" ) %></div>
+         <%= link_to  project_path(p),method: :delete, data: { confirm: 'Are you sure?' } do %>
+             <span id="delete_project" class="glyphicon glyphicon-remove pull-right">  </span>
+         <%end  %>
+
+          <div class="half_top">  <div class="module_image_wrap ">  
+            <%= image_tag p.image.url(:thumb) %>
+          </div>
             </div>
        <div class="half_bottom">
         <h2><div class="project_title"> <%= p.title %> </div></h2>
        <p class="shortDesc">   <%= p.shortDesc[0...60] + (p.shortDesc.length > 60 ? "..." : "") %></p>
-          <p><a class="btn btn-theme" href="#" data-toggle="modal" data-target="#p_<%= p.id%>">Read more »</a></p>
+          <p><a class="btn btn-theme btn-lg" href="#" data-toggle="modal" data-target="#p_<%= p.id%>">Read more »</a></p>
         </div>
       </div>
 
@@ -30,7 +41,6 @@
       <div class="modal-body">
        <div class="row span9">
                             <div class="span5">
-                                <%= image_tag("projects/"+p.imgName, size: "400", :alt => "logo" ) %>
                             </div>
                             <div class="span3">
                           <p> <%= p.longDesc%>
@@ -57,3 +67,4 @@
 
 
   </section>
+  </div>

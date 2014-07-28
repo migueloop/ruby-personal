@@ -1,10 +1,9 @@
 Personal::Application.routes.draw do
-  root  'welcome#index'
+  root  'static_pages#home'
  
-
   #match '/projects',    to: 'static_pages#projects',    via: 'get'
-  match '/home',    to: 'static_pages#home',    via: 'get'
-  match '/help',    to: 'static_pages#help',    via: 'get'
+  match '/home',    to: 'static_pages#home',    via: 'get' , action: 'home'
+  #match '/snippets',    to: 'static_pages#snippets',    via: 'get'
 
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
@@ -15,6 +14,7 @@ Personal::Application.routes.draw do
 
   resources :users
   resources :projects
+  resources :music
   resources :sessions, only: [:new, :create, :destroy]
   #get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.

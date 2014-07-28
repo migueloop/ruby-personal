@@ -29,5 +29,5 @@ production:
   database: personal
   pool: 5
   username: root
-  password: root
+  password: mruiz.mysql!
   socket: /var/run/mysqld/mysqld.sock

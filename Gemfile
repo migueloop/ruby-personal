@@ -8,6 +8,10 @@ gem 'less-rails-bootstrap'
 
 gem 'therubyracer', :platforms => :ruby
 
+
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem "paperclip", "~> 4.1"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 

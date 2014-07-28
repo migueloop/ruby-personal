@@ -1,0 +1,46 @@
+
+
+
+
+<div class="btn-group">
+      <%= link_to "[snippet]" ,"",id: "tag_snippet" , class: "btn btn-default" , role: "button" %>
+      <%= link_to "[note]" ,"" ,id: "tag_note" , class: "btn btn-default" %>
+</div>
+
+<%= form_for :snippet , url: snippets_path  do |f|  %>
+
+    <%= f.label :title %><br>
+    <%= f.text_field :title , class:"form-control"  %>
+  </p>
+ 
+  <p>
+    <%= f.label :code %><br>
+    <%= f.text_area :body ,  class:'snippet_form' , html: rows="2" , placeholder: "Use [snippet] and [/snippet] to create different snippets" , size: "10x15"%>
+  </p>
+
+ <!-- <p>
+    <%= f.label :tag_names %>
+    <%=f.text_field :tag_names %>
+  </p>-->
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+  <script>
+$('a[id^=tag_]').click(function (event) {
+
+  var element_id = $(this).attr('id');
+   
+    if(element_id == "tag_note"){
+     var tag =  "[note][/note]" ; 
+    }
+    if(element_id == "tag_snippet"){
+      var tag = "[snippet][/snippet]";
+    } 
+      //append tag
+    $('#snippet_body').val($('#snippet_body').val()+tag);
+    event.preventDefault(); // Prevent link from following its href
+});
+</script>
+<% end %>

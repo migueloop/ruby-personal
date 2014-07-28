@@ -1,0 +1,63 @@
+<% load_css('specific/snippets') %>
+
+
+<div class="section_title">
+  <h1>Snippets</h1>
+  <% if is_admin? %>
+      <%= link_to  new_snippet_path  do %>
+          <span id="add_project" class="btn btn-default">  Add snippet </span>
+      <%end  %>
+  <%end%>
+</div>
+
+
+
+
+    <div id="snippets" class="container wrap">
+    <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+            <a href="#" class="list-group-item active">
+              Latest snippets
+            </a>
+            <a href="#" class="list-group-item">
+              <h4 class="list-group-item-heading">By tag</h4>
+              <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+
+          </div>  
+    </div>
+
+    <div class="col-sm-8" role="main">
+    <div class="bs-docs-section">
+      <table class="datatable table table-striped table-bordered" id="snippets-table">
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th>Content</th>
+        </tr>
+        </thead>
+        <tbody>
+
+            <% @snippets.each do |s|
+        %>
+        <tr>
+            <td><%=s.title%></td>
+            <td id="snippet_body"><%=raw parse_snippet s.body%></td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div> </div>
+</div>
+</div>
+  </div>
+
+<script>
+$(document).ready(function() {
+    $('#snippets-table').dataTable();
+});
+});
+
+</script>
+<script>prettyPrint();</script>

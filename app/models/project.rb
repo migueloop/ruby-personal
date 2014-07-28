@@ -5,6 +5,10 @@ class Project < ActiveRecord::Base
 	attr_writer :tag_names
 	after_save :assign_tags
 
+
+	has_attached_file :image, :styles => {  :large => "550x550>",  :medium => "350x350>", :thumb => "200x200>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
 	def tag_names
     @tag_names || tags.map(&:name).join(',')
   	end

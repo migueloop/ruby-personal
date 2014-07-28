@@ -10,6 +10,10 @@ module ApplicationHelper
 	end
 
 	def load_css(*files)
-  content_for(:head) { stylesheet_link_tag(*files) }
-end
+  		content_for(:head) { stylesheet_link_tag(*files) }
+	end
+
+	def is_active?(page_name)
+ 		"active" if controller.controller_name == page_name or params[:action] == page_name
+	end
 end

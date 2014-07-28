@@ -1,0 +1,28 @@
+<% provide(:title, 'Projects') %>
+
+
+    <div class="section_title">
+
+   <h1>MILR - Music I'd like to remind</h1>
+    <% if is_admin? %>
+      <%= link_to  new_music_path  do %>
+          <span id="add_project" class="btn btn-default">  Add song </span>
+      <%end  %>
+     <%end%>
+    </div>
+
+    <section id="projects" class="section">
+
+      <% @songs.each do |s| 
+        %> 
+
+       <div class="span3 features song_container">
+       
+            
+       <p class="song_name">   <%= s.name %>
+       </p>
+       <p class="song_url">  <%= s.url%> </p>
+      </div>
+
+      <% end %>
+ </section>

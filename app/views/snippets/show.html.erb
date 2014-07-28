@@ -1,0 +1,32 @@
+<p>
+
+  <%= @snippet.title%>
+</p>
+
+
+
+
+<script type="text/javascript">
+
+</script>
+
+
+
+<div id="snippet">
+</div>
+
+
+<%= content_tag :div, class: "snippet_class", data: {snippet: @snippet} do %>
+<% end %>
+
+
+<script type="text/javascript">
+var jsSnippet = $('.snippet_class').data('snippet');
+parse_snippets(jsSnippet.body);
+</script>
+
+
+
+
+
+<script>prettyPrint();</script>
